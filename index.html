@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Leitstelle</title>
+
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="startseite" class="page start-page">
+        <div class="start-box">
+            <div class="start-icon">L</div>
+
+            <h1>Hallo</h1>
+
+            <p>
+                Willkommen in deiner Leitstelle
+            </p>
+
+            <button
+                id="startButton"
+                class="primary-button"
+                type="button"
+            >
+                Leitstelle starten
+            </button>
+        </div>
+    </div>
+
+
+    <div id="kartenseite" class="page map-page hidden">
+
+        <div id="map">
+        </div>
+
+        <div class="map-header" id="controlCenterButton">
+
+            <div class="map-title">
+
+        <strong>Leitstelle</strong>
+
+        <span>Fahrzeugübersicht</span>
+
+        <div id="moneyDisplay" class="money-display">
+            💰 100.000 €
+        </div>
+
+        </div>
+
+</div>
+
+        <button
+            id="addBuildingButton"
+            class="map-button add-button"
+            type="button"
+            title="Wache bauen"
+        >
+            +
+        </button>
+
+        <div id="statusBar" class="status-bar">
+            Leitstelle bereit
+        </div>
+
+    </div>
+
+
+    <div id="buildingOverlay" class="overlay hidden">
+
+        <div class="modal station-modal">
+
+            <button
+                type="button"
+                class="close-button"
+                id="closeBuildingButton"
+            >
+                x
+            </button>
+
+            <div class="modal-header">
+                <div class="modal-icon">
+                    W
+                </div>
+
+                <div>
+                    <span class="modal-kicker">
+                        Infrastruktur
+                    </span>
+
+                    <h2>Neue Wache</h2>
+
+                    <p>
+                        Errichte eine neue Wache an diesem Standort.
+                    </p>
+                </div>
+            </div>
+
+            <label for="buildingType">
+                Wachentyp
+            </label>
+
+            <select id="buildingType">
+                <option value="Feuerwache">
+                    Feuerwache
+                </option>
+
+                <option value="Rettungswache">
+                    Rettungswache
+                </option>
+            </select>
+
+            <label for="buildingName">
+                Name der Wache
+            </label>
+
+            <input
+                id="buildingName"
+                type="text"
+                maxlength="40"
+                placeholder="Zum Beispiel Feuerwache Mitte"
+                autocomplete="off"
+            >
+
+            <button
+                id="buildButton"
+                type="button"
+                class="primary-button"
+            >
+                Wache bauen
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div id="buildingInfoOverlay" class="overlay hidden">
+
+        <div class="modal station-info-modal">
+
+            <button
+                type="button"
+                class="close-button"
+                id="closeBuildingInfoButton"
+            >
+                x
+            </button>
+
+            <div id="buildingInfoContent"></div>
+
+        </div>
+
+    </div>
+
+
+    <div id="incidentOverlay" class="overlay hidden">
+
+        <div class="modal incident-modal">
+
+            <button
+                type="button"
+                class="close-button"
+                id="closeIncidentButton"
+            >
+                x
+            </button>
+
+            <div class="incident-heading">
+
+                <div class="incident-icon">
+                    !
+                </div>
+
+                <div>
+                    <span class="modal-kicker">
+                        Einsatz
+                    </span>
+
+                    <h2 id="incidentStatus">
+                        Einsatz
+                    </h2>
+
+                    <p id="incidentDescription">
+                        Einsatz wartet auf Alarmierung.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="incident-info">
+
+                <div class="info-card">
+                    <span>Entfernung</span>
+                    <strong id="incidentDistance">-</strong>
+                </div>
+
+                <div class="info-card">
+                    <span>Status</span>
+                    <strong id="incidentCountdown">-</strong>
+                </div>
+
+            </div>
+
+            <div class="alarm-section">
+
+                <div class="section-title">
+                    <strong>Fahrzeuge alarmieren</strong>
+                    <span>
+                        Mehrere Fahrzeuge können ausgewählt werden.
+                    </span>
+                </div>
+
+                <div id="incidentVehicles"></div>
+
+            </div>
+
+            <button
+                id="alarmButton"
+                type="button"
+                class="primary-button alarm-button"
+            >
+                Alarmieren
+            </button>
+
+        </div>
+
+    </div>
+
+    <div id="controlCenterOverlay" class="control-center-overlay hidden">
+
+    <div class="control-center-panel">
+
+        <div class="control-center-header">
+
+            <div>
+                <span class="modal-kicker">Leitstelle</span>
+                <h2>Einstellungen</h2>
+            </div>
+
+            <button
+                type="button"
+                id="closeControlCenterButton"
+                class="close-button"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <div class="control-center-content">
+
+            <button
+                type="button"
+                id="resetGameButton"
+                class="danger-button"
+            >
+                Spielstand zurücksetzen
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script type="module" src="js/main.js"></script>
+
+</body>
+</html>
