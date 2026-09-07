@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Leitstelle</title>
+
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="startseite" class="page start-page">
+        <div class="start-box">
+            <div class="start-icon">L</div>
+
+            <h1>Hallo</h1>
+
+            <p>
+                Willkommen in deiner Leitstelle
+            </p>
+
+            <button
+                id="startButton"
+                class="primary-button"
+                type="button"
+            >
+                Leitstelle starten
+            </button>
+        </div>
+    </div>
+
+
+    <div id="kartenseite" class="page map-page hidden">
+
+        <div id="map">
+        </div>
+
+        <div class="map-header" id="controlCenterButton">
+
+            <div class="map-title">
+
+                <strong>Leitstelle</strong>
+
+                <span>Fahrzeugübersicht</span>
+
+                <div id="moneyDisplay" class="money-display">
+                    💰 100.000 €
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <button
+            id="addBuildingButton"
+            class="map-button add-button"
+            type="button"
+            title="Wache bauen"
+        >
+            +
+        </button>
+
+
+        <div id="statusBar" class="status-bar">
+            Leitstelle bereit
+        </div>
+
+    </div>
+
+
+    <div id="buildingOverlay" class="overlay hidden">
+
+        <div class="modal station-modal">
+
+            <button
+                type="button"
+                class="close-button"
+                id="closeBuildingButton"
+            >
+                x
+            </button>
+
+            <div class="modal-header">
+
+                <div class="modal-icon">
+                    W
+                </div>
+
+                <div>
+
+                    <span class="modal-kicker">
+                        Infrastruktur
+                    </span>
+
+                    <h2>Neue Wache</h2>
+
+                    <p>
+                        Errichte eine neue Wache an diesem Standort.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <label for="buildingType">
+                Wachentyp
+            </label>
+
+            <select id="buildingType">
+
+                <option value="Feuerwache">
+                    Feuerwache
+                </option>
+
+                <option value="Rettungswache">
+                    Rettungswache
+                </option>
+
+            </select>
+
+
+            <label for="buildingName">
+                Name der Wache
+            </label>
+
+            <input
+                id="buildingName"
+                type="text"
+                maxlength="40"
+                placeholder="Zum Beispiel Feuerwache Mitte"
+                autocomplete="off"
+            >
+
+
+            <button
+                id="buildButton"
+                type="button"
+                class="primary-button"
+            >
+                Wache bauen
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div id="buildingInfoOverlay" class="overlay hidden">
+
+        <div class="modal station-info-modal">
+
+            <button
+                type="button"
+                class="close-button"
+                id="closeBuildingInfoButton"
+            >
+                x
+            </button>
+
+            <div id="buildingInfoContent"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         EINSATZ
+    ====================================================== -->
+
+    <div id="incidentOverlay" class="overlay hidden">
+
+        <div class="modal incident-modal">
+
+
+            <!-- SCHLIESSEN -->
+
+            <button
+                id="closeIncidentButton"
+                class="close-button"
+                type="button"
+            >
+                ×
+            </button>
+
+
+            <!-- EINSATZ KOPF -->
+
+            <div class="incident-heading">
+
+                <div class="incident-icon">
+                    !
+                </div>
+
+
+                <div>
+
+                    <span class="modal-kicker">
+                        EINSATZ
+                    </span>
+
+                    <h2 id="incidentStatus">
+                        Einsatz
+                    </h2>
+
+                    <p id="incidentDescription">
+                        Einsatz wartet auf Alarmierung.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 EINSATZ MENÜ
+            ================================================== -->
+
+            <div class="incident-tabs">
+
+
+                <!-- ÜBERSICHT -->
+
+                <button
+                    type="button"
+                    class="incident-tab active"
+                    data-incident-tab="overview"
+                >
+
+                    <span class="incident-tab-icon">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <circle
+                                cx="12"
+                                cy="12"
+                                r="9"
+                            ></circle>
+
+                            <circle
+                                cx="12"
+                                cy="12"
+                                r="2"
+                            ></circle>
+                        </svg>
+
+                    </span>
+
+                    Übersicht
+
+                </button>
+
+
+                <!-- FAHRZEUGE -->
+
+                <button
+                    type="button"
+                    class="incident-tab"
+                    data-incident-tab="vehicles"
+                >
+
+                    <span class="incident-tab-icon">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path
+                                d="M5 16l1.5-6h11L19 16"
+                            ></path>
+
+                            <path
+                                d="M4 16h16v3H4z"
+                            ></path>
+
+                            <circle
+                                cx="7.5"
+                                cy="19"
+                                r="1.5"
+                            ></circle>
+
+                            <circle
+                                cx="16.5"
+                                cy="19"
+                                r="1.5"
+                            ></circle>
+
+                            <path
+                                d="M7 10l1.2-3h7.6l1.2 3"
+                            ></path>
+                        </svg>
+
+                    </span>
+
+                    Fahrzeuge
+
+                </button>
+
+
+                <!-- MASSNAHMEN -->
+
+                <button
+                    type="button"
+                    class="incident-tab"
+                    data-incident-tab="measures"
+                >
+
+                    <span class="incident-tab-icon">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path
+                                d="M5 15c0-4.4 2.7-8 7-8s7 3.6 7 8"
+                            ></path>
+
+                            <path
+                                d="M8 15v3"
+                            ></path>
+
+                            <path
+                                d="M16 15v3"
+                            ></path>
+
+                            <path
+                                d="M9 10c1-1 2-1.5 3-1.5s2 .5 3 1.5"
+                            ></path>
+
+                            <path
+                                d="M12 8V5"
+                            ></path>
+                        </svg>
+
+                    </span>
+
+                    Maßnahmen
+
+                </button>
+
+
+                <!-- PROTOKOLL -->
+
+                <button
+                    type="button"
+                    class="incident-tab"
+                    data-incident-tab="protocol"
+                >
+
+                    <span class="incident-tab-icon">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <rect
+                                x="5"
+                                y="3"
+                                width="14"
+                                height="18"
+                                rx="2"
+                            ></rect>
+
+                            <path
+                                d="M8 8h8"
+                            ></path>
+
+                            <path
+                                d="M8 12h8"
+                            ></path>
+
+                            <path
+                                d="M8 16h5"
+                            ></path>
+                        </svg>
+
+                    </span>
+
+                    Protokoll
+
+                </button>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 TAB INHALTE
+            ================================================== -->
+
+            <div class="incident-tab-content">
+
+
+                <!-- =================================================
+                     ÜBERSICHT
+                ================================================== -->
+
+                <div
+                    class="incident-panel active"
+                    data-incident-panel="overview"
+                >
+
+
+                    <!-- LAGE -->
+
+                    <div class="incident-overview-title">
+
+                        <strong>
+                            Lage
+                        </strong>
+
+                        <p id="incidentOverviewDescription">
+                            Mülleimerbrand. Ein Löschfahrzeug
+                            wird zur Brandbekämpfung benötigt.
+                        </p>
+
+                    </div>
+
+
+                    <!-- INFOKARTEN -->
+
+                    <div class="incident-overview-cards">
+
+
+                        <!-- ENTFERNUNG -->
+
+                        <div class="incident-overview-card">
+
+                            <div class="incident-overview-card-icon">
+                                ●
+                            </div>
+
+                            <div>
+
+                                <span>
+                                    Entfernung
+                                </span>
+
+                                <strong id="incidentOverviewDistance">
+                                    -
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- EINSATZART -->
+
+                        <div class="incident-overview-card">
+
+                            <div class="incident-overview-card-icon">
+                                !
+                            </div>
+
+                            <div>
+
+                                <span>
+                                    Einsatzart
+                                </span>
+
+                                <strong id="incidentOverviewType">
+                                    Mülleimerbrand
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- STATUS -->
+
+                        <div class="incident-overview-card">
+
+                            <div class="incident-overview-card-icon">
+                                ✓
+                            </div>
+
+                            <div>
+
+                                <span>
+                                    Status
+                                </span>
+
+                                <strong id="incidentOverviewStatus">
+                                    Wartet auf Alarmierung
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <!-- =================================================
+                         FAHRZEUGE ALARMIEREN
+                         BLEIBT AUF DER ÜBERSICHT
+                    ================================================== -->
+
+                    <div class="alarm-section">
+
+
+                        <div class="section-title">
+
+                            <strong>
+                                Fahrzeuge alarmieren
+                            </strong>
+
+                            <span>
+                                Mehrere Fahrzeuge können ausgewählt werden.
+                            </span>
+
+                        </div>
+
+
+                        <!--
+                            Hier werden nur noch Fahrzeuge angezeigt,
+                            die noch nicht für diesen Einsatz alarmiert
+                            wurden.
+                        -->
+
+                        <div id="incidentVehicles"></div>
+
+
+                        <button
+                            id="alarmButton"
+                            class="primary-button"
+                            type="button"
+                        >
+                            Alarmieren
+                        </button>
+
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- =================================================
+                     FAHRZEUGE
+                ================================================== -->
+
+                <div
+                    class="incident-panel"
+                    data-incident-panel="vehicles"
+                >
+
+                    <div class="incident-vehicles-panel">
+
+
+                        <div class="section-title">
+
+                            <strong>
+                                Fahrzeuge
+                            </strong>
+
+                            <span>
+                                Alarmierte Fahrzeuge im Einsatz.
+                            </span>
+
+                        </div>
+
+
+                        <!--
+                            Hier erscheinen alarmierte Fahrzeuge.
+
+                            Status:
+                            Auf Anfahrt
+                            Vor Ort
+                        -->
+
+                        <div id="incidentAssignedVehicles"></div>
+
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     MASSNAHMEN
+                ================================================== -->
+
+                <div
+                    class="incident-panel"
+                    data-incident-panel="measures"
+                >
+
+                    <div class="incident-placeholder">
+
+                        <strong>
+                            Maßnahmen
+                        </strong>
+
+                        <p>
+                            Maßnahmen werden hier später angezeigt.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     PROTOKOLL
+                ================================================== -->
+
+                <div
+                    class="incident-panel"
+                    data-incident-panel="protocol"
+                >
+
+                    <div class="incident-placeholder">
+
+                        <strong>
+                            Protokoll
+                        </strong>
+
+                        <p>
+                            Das Einsatzprotokoll wird hier später angezeigt.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 BESTEHENDE INTERNE EINSATZ-INFOS
+
+                 Diese IDs werden weiterhin von incidents.js
+                 verwendet. Sie werden per CSS ausgeblendet.
+            ================================================== -->
+
+            <div
+                class="incident-info incident-internal-info"
+            >
+
+
+                <div class="info-card">
+
+                    <span>
+                        Entfernung
+                    </span>
+
+                    <strong id="incidentDistance">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <span>
+                        Status
+                    </span>
+
+                    <strong id="incidentCountdown">
+                        Wartet auf Alarmierung
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         LEITSTELLEN EINSTELLUNGEN
+    ====================================================== -->
+
+    <div
+        id="controlCenterOverlay"
+        class="control-center-overlay hidden"
+    >
+
+        <div class="control-center-panel">
+
+
+            <div class="control-center-header">
+
+                <div>
+
+                    <span class="modal-kicker">
+                        Leitstelle
+                    </span>
+
+                    <h2>
+                        Einstellungen
+                    </h2>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="closeControlCenterButton"
+                    class="close-button"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <div class="control-center-content">
+
+                <button
+                    type="button"
+                    id="resetGameButton"
+                    class="danger-button"
+                >
+                    Spielstand zurücksetzen
+                </button>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <script
+        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    ></script>
+
+    <script
+        type="module"
+        src="js/main.js"
+    ></script>
+
+</body>
+</html>
