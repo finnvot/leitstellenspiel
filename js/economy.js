@@ -5,7 +5,7 @@ const ECONOMY_STORAGE_KEY = "dispatchEconomy";
 export const ECONOMY = {
     STARTING_MONEY: 1000000,
 
-    BUILDING_COST: 60000,
+    BUILDING_COST: 6000,
 
     INCIDENT_REWARD: 1000
 };
