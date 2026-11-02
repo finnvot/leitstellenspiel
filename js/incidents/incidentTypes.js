@@ -1,0 +1,304 @@
+"use strict";
+
+import {
+    createObjective
+} from "./incidentObjectives.js";
+
+
+/* =========================================================
+   MÜLLEIMERBRAND
+========================================================= */
+
+export const Muelleimerbrand = {
+
+    id:
+        "mueleimerbrand",
+
+    label:
+        "Mülleimerbrand",
+
+    description:
+        "Kleiner Brand eines Mülleimers.",
+
+    weight:
+        25,
+
+    requiredVehicleTypes: [
+        "LF10",
+        "LF20",
+        "TLF4000",
+        "LF86",
+        "TSF"
+    ],
+
+
+    createIncidentData() {
+
+        return {
+
+            brandStrength:
+                10,
+
+            objectives: [
+
+                createObjective(
+                    "brandLoeschen",
+                    "Brand löschen"
+                ),
+
+                createObjective(
+                    "einsatzstelleKontrollieren",
+                    "Einsatzstelle kontrollieren"
+                )
+
+            ]
+
+        };
+
+    }
+
+};
+
+
+/* =========================================================
+   HECKENBRAND
+========================================================= */
+
+export const Heckenbrand = {
+
+    id:
+        "heckenbrand",
+
+    label:
+        "Heckenbrand",
+
+    description:
+        "Brand einer Hecke.",
+
+    weight:
+        25,
+
+    requiredVehicleTypes: [
+        "LF10",
+        "LF20",
+        "TLF4000",
+        "LF86",
+        "TSF"
+    ],
+
+
+    createIncidentData() {
+
+        return {
+
+            brandStrength:
+                30,
+
+            objectives: [
+
+                createObjective(
+                    "brandLoeschen",
+                    "Brand löschen"
+                ),
+
+                createObjective(
+                    "einsatzstelleKontrollieren",
+                    "Einsatzstelle kontrollieren"
+                )
+
+            ]
+
+        };
+
+    }
+
+};
+
+/* =========================================================
+   PKW-BRAND
+========================================================= */
+
+export const PkwBrand = {
+
+    id:
+        "pkwbrand",
+
+    label:
+        "PKW-Brand",
+
+    description:
+        "Brand eines PKW.",
+
+    weight:
+        25,
+
+    requiredVehicleTypes: [
+        "LF10",
+        "LF20",
+        "TLF4000",
+        "LF86",
+        "TSF"
+    ],
+
+
+    createIncidentData() {
+
+        return {
+
+            brandStrength:
+                40,
+
+            objectives: [
+
+                createObjective(
+                    "brandLoeschen",
+                    "Brand löschen"
+                ),
+
+                createObjective(
+                    "einsatzstelleKontrollieren",
+                    "Einsatzstelle kontrollieren"
+                )
+
+            ]
+
+        };
+
+    }
+
+};
+
+/* =========================================================
+   KATZE AUF BAUM
+========================================================= */
+
+export const KatzeAufBaum = {
+
+    id:
+        "katzeaufbaum",
+
+    label:
+        "Katze auf Baum",
+
+    description:
+        "Katze sitzt auf einem Baum und muss gerettet werden.",
+
+    weight:
+        25,
+
+    requiredVehicleTypes: [
+        "LF10",
+        "LF20",
+        "LF86",
+        "TSF"
+    ],
+
+
+    createIncidentData() {
+
+        return {
+
+            objectives: [
+
+                createObjective(
+                    "kleintierRetten",
+                    "Kleintier retten"
+                )
+
+            ]
+
+        };
+
+    }
+
+};
+
+
+/* =========================================================
+   MEDIZINISCHER NOTFALL
+========================================================= */
+
+export const MedizinischerNotfall = {
+
+    id: "medizinischernotfall",
+
+    label: "Medizinischer Notfall",
+
+    description: "Eine Person benötigt medizinische Versorgung.",
+
+    weight: 25,
+
+    requiredVehicleTypes: [
+        "RTW"
+    ],
+
+    createIncidentData() {
+
+        return {
+
+            objectives: [
+
+                createObjective(
+                    "patientVersorgen",
+                    "Patient versorgen"
+                )
+
+            ]
+
+        };
+
+    }
+
+};
+
+
+/* =========================================================
+   VU GEGEN AMPEL
+========================================================= */
+
+export const VuGegenAmpel = {
+
+    id:
+        "vugegenampel",
+
+    label:
+        "VU gegen Ampel",
+
+    description:
+        "Ein PKW ist gegen eine Ampel gefahren. Eine Person benötigt Betreuung.",
+
+    weight:
+        25,
+
+    requiredVehicleTypes: [
+        "LF10",
+        "LF20",
+        "LF86",
+        "TSF",
+        "RTW"
+    ],
+
+    createIncidentData() {
+
+        return {
+
+            objectives: [
+
+                createObjective(
+                    "einsatzstelleAbsichern",
+                    "Einsatzstelle absichern"
+                ),
+
+                createObjective(
+                    "patientenBetreuen",
+                    "Patienten betreuen"
+                )
+
+            ]
+
+        };
+
+    }
+
+};
+
