@@ -180,6 +180,7 @@ function initializeMap() {
                 zoomControl: false,
                 doubleClickZoom: true,
                 dragging: true
+                attributionControl: false
             }
         ).setView(
             MAP_CENTER,
