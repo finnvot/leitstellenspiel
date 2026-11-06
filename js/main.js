@@ -177,7 +177,7 @@ function initializeMap() {
         L.map(
             "map",
             {
-                zoomControl: true,
+                zoomControl: false,
                 doubleClickZoom: true,
                 dragging: true
             }
