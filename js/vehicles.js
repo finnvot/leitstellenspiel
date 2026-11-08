@@ -628,7 +628,7 @@ export function buyVehicle(
 
 spendMoney(
     vehicleInfo.cost,
-    "Fahrzeug gekauft: " + vehicleInfo.name,
+    "Fahrzeug gekauft: " + vehicleInfo.label,
     "Fahrzeugkosten"
 );
 
