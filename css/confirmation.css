@@ -1,0 +1,432 @@
+/* SPIELSTAND ZURÜCKSETZEN */
+
+.danger-button {
+    width: 100%;
+
+    padding: 12px 16px;
+
+    border: none;
+    border-radius: 9px;
+
+    background: #d9232e;
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 800;
+
+    cursor: pointer;
+}
+
+.danger-button:hover {
+    background: #b71c1c;
+}
+
+/* =========================================================
+   LÖSCHEN / GEFAHR
+========================================================= */
+
+#confirmationOverlay
+.confirmation-buttons
+.danger-button {
+
+    background: #d9232e;
+
+    border-color: #d9232e !important;
+
+    color: #ffffff;
+
+    box-shadow:
+        0 4px 10px rgba(217, 45, 58, 0.20);
+}
+
+
+#confirmationOverlay
+.confirmation-buttons
+.danger-button:hover {
+
+    background: #dc3545;
+
+    border-color: #dc3545 !important;
+
+    box-shadow:
+        0 6px 14px rgba(217, 45, 58, 0.28);
+
+}
+
+
+#confirmationOverlay
+.confirmation-buttons
+.danger-button:active {
+
+    background: #a91923;
+
+    border-color: #a91923 !important;
+
+}
+
+
+#confirmationOverlay
+.confirmation-buttons
+.danger-button:focus-visible {
+
+    outline: 3px solid rgba(217, 45, 58, 0.25);
+
+    outline-offset: 2px;
+
+}
+
+/* =========================================================
+   KAUFEN / BESTÄTIGEN
+========================================================= */
+
+#confirmationOverlay
+.confirmation-buttons
+.confirm-button {
+
+    background: #d9232e;
+
+    border-color: #d9232e !important;
+
+    color: #ffffff;
+
+    box-shadow:
+        0 4px 10px rgba(217, 45, 58, 0.20);
+}
+
+
+#confirmationOverlay
+.confirmation-buttons
+.confirm-button:hover {
+
+    background: #dc3545;
+
+    border-color: #dc3545 !important;
+
+    box-shadow:
+        0 6px 14px rgba(217, 45, 58, 0.28);
+
+}
+
+
+#confirmationOverlay
+.confirmation-buttons
+.confirm-button:active {
+
+    background: #a91923;
+
+    border-color: #a91923 !important;
+
+}
+
+
+#confirmationOverlay
+.confirmation-buttons
+.confirm-button:focus-visible {
+
+    outline: 3px solid rgba(217, 45, 58, 0.25);
+
+    outline-offset: 2px;
+
+}
+
+/* =========================================================
+   ALLGEMEINES BESTÄTIGUNGS-OVERLAY
+========================================================= */
+
+#confirmationOverlay {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+
+    z-index: 10000;
+
+    opacity: 1;
+    visibility: visible;
+
+    transition:
+        opacity 0.18s ease,
+        visibility 0.18s ease;
+}
+
+
+/* =========================================================
+   AUSGEBLENDET
+========================================================= */
+
+#confirmationOverlay.hidden {
+    display: none;
+}
+
+
+/* =========================================================
+   BESTÄTIGUNGS-FENSTER
+========================================================= */
+
+#confirmationOverlay .confirmation-content {
+
+    width: min(
+        430px,
+        calc(100vw - 40px)
+    );
+
+    box-sizing: border-box;
+
+    padding: 28px;
+
+    background: #ffffff;
+
+    border: 1px solid #202124;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 24px 70px rgba(0, 0, 0, 0.30),
+        0 8px 24px rgba(0, 0, 0, 0.14);
+
+    text-align: center;
+
+    animation:
+        confirmationAppear
+        0.18s
+        ease-out;
+}
+
+
+/* =========================================================
+   TITEL
+========================================================= */
+
+#confirmationOverlay
+#confirmationTitle {
+
+    margin: 0 0 12px 0;
+
+    color: #202124;
+
+    font-size: 23px;
+    font-weight: 700;
+
+    line-height: 1.25;
+}
+
+
+/* =========================================================
+   NACHRICHT
+========================================================= */
+
+#confirmationOverlay
+#confirmationMessage {
+
+    margin: 0 auto;
+
+    max-width: 340px;
+
+    color: #666666;
+
+    font-size: 15px;
+    font-weight: 400;
+
+    line-height: 1.55;
+}
+
+
+/* =========================================================
+   BUTTON-BEREICH
+========================================================= */
+
+#confirmationOverlay .confirmation-buttons {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    margin-top: 26px;
+}
+
+
+/* =========================================================
+   ALLE BUTTONS
+========================================================= */
+
+#confirmationOverlay
+.confirmation-buttons button {
+
+    min-width: 125px;
+
+    min-height: 46px;
+
+    padding: 11px 18px;
+
+    border: 1px solid transparent;
+
+    border-radius: 10px;
+
+    font-family: inherit;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.15s ease,
+        border-color 0.15s ease,
+        color 0.15s ease,
+        transform 0.12s ease,
+        box-shadow 0.15s ease;
+}
+
+
+/* =========================================================
+   HOVER / AKTIV
+========================================================= */
+
+#confirmationOverlay
+.confirmation-buttons button:hover {
+
+    transform: translateY(-1px);
+
+}
+
+
+#confirmationOverlay
+.confirmation-buttons button:active {
+
+    transform: translateY(0);
+
+}
+
+
+/* =========================================================
+   ABBRECHEN
+========================================================= */
+
+#confirmationCancelButton {
+
+    background: #f1f3f5;
+
+    border-color: #d9dee5 !important;
+
+    color: #292d32;
+}
+
+
+#confirmationCancelButton:hover {
+
+    background: #e5e7e9;
+
+    border-color: #d9dee5 !important;
+
+}
+
+
+#confirmationCancelButton:focus-visible {
+
+    outline: 3px solid rgba(80, 100, 120, 0.22);
+
+    outline-offset: 2px;
+
+}
+
+/* =========================================================
+   ANIMATION
+========================================================= */
+
+@keyframes confirmationAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(8px)
+            scale(0.97);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+@media (max-width: 600px) {
+
+/* CONFIRMATION */
+
+    #confirmationOverlay {
+
+        padding: 16px;
+
+    }
+
+
+    #confirmationOverlay
+    .confirmation-content {
+
+        width: 100%;
+
+        padding: 24px 20px;
+
+        border-radius: 16px;
+
+    }
+
+
+    #confirmationOverlay
+    #confirmationTitle {
+
+        font-size: 21px;
+
+    }
+
+
+    #confirmationOverlay
+    #confirmationMessage {
+
+        font-size: 14px;
+
+    }
+
+
+    #confirmationOverlay
+    .confirmation-buttons {
+
+        flex-direction: column-reverse;
+
+        gap: 10px;
+
+        width: 100%;
+
+    }
+
+
+    #confirmationOverlay
+    .confirmation-buttons button {
+
+        width: 100%;
+
+        min-height: 48px;
+
+    }
+
+}

@@ -1,0 +1,337 @@
+.finance-filter-bar {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.finance-filter-button {
+    flex: 1;
+    padding: 9px 12px;
+    border: 1px solid var(--veyro-color-border-strong);
+    border-radius: 8px;
+    background: var(--veyro-color-background);
+    color: var(--veyro-color-text-secondary);
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.finance-filter-button:hover {
+    background: var(--veyro-color-surface-hover);
+}
+
+.finance-filter-button.active {
+    background: #263b52;
+    border-color: #263b52;
+    color: #fff;
+}
+
+/* =========================================================
+   LEERE FINANZLISTE
+========================================================= */
+
+.finance-empty {
+    padding: 25px 12px;
+
+    color: #858a90;
+
+    font-size: 13px;
+    text-align: center;
+}
+
+/* =========================================================
+   BUCHUNGEN - ÜBERSCHRIFT
+========================================================= */
+
+.finance-transactions-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 3px;
+}
+
+.finance-transactions-header h4 {
+    margin: 0;
+
+    color: var(--veyro-color-text);
+
+    font-size: 14px;
+    font-weight: 850;
+}
+
+
+/* =========================================================
+   BUCHUNGSLISTE
+========================================================= */
+
+.finance-transactions {
+    display: flex;
+    flex-direction: column;
+
+    max-height: 350px;
+
+    overflow-y: auto;
+
+    border-top: 1px solid var(--veyro-color-border);
+}
+
+
+/* =========================================================
+   EINZELNE BUCHUNG
+========================================================= */
+
+.finance-transaction {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+
+    padding: 14px 4px;
+
+    border-bottom: 1px solid var(--veyro-color-surface-hover);
+
+    background: var(--veyro-color-surface);
+}
+
+.finance-transaction-info {
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+
+    min-width: 0;
+}
+
+.finance-transaction-info strong {
+    color: var(--veyro-color-text);
+
+    font-size: 13px;
+    font-weight: 750;
+
+    overflow-wrap: anywhere;
+}
+
+.finance-transaction-info span {
+    color: #858a90;
+
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.finance-transaction-amount {
+    flex-shrink: 0;
+
+    font-size: 13px;
+    font-weight: 850;
+
+    white-space: nowrap;
+}
+
+.finance-transaction.income .finance-transaction-amount {
+    color: #168653;
+}
+
+.finance-transaction.expense .finance-transaction-amount {
+    color: #d9232e;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+.finance-transactions::-webkit-scrollbar {
+    width: 5px;
+}
+
+.finance-transactions::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.finance-transactions::-webkit-scrollbar-thumb {
+    background: #d9dcdf;
+    border-radius: 10px;
+}
+
+.finance-transactions::-webkit-scrollbar-thumb:hover {
+    background: #b7bdc3;
+}
+
+/* GELD */
+
+.money-display {
+    margin-top: 6px;
+
+    font-size: 16px;
+    font-weight: 700;
+}
+
+/* =========================================================
+   FINANZÜBERSICHT
+========================================================= */
+
+.finance-section {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 100%;
+    color: var(--veyro-color-text);
+    font-family: inherit;
+}
+
+
+/* =========================================================
+   ÜBERSCHRIFT
+========================================================= */
+
+.finance-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.finance-section-header h3 {
+    margin: 4px 0 0;
+
+    color: var(--veyro-color-text);
+
+    font-size: 19px;
+    font-weight: 850;
+}
+
+
+/* =========================================================
+   EINNAHMEN / AUSGABEN
+========================================================= */
+
+.finance-summary {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.finance-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    min-width: 0;
+    padding: 16px;
+
+    background: var(--veyro-color-surface-secondary);
+
+    border: 1px solid var(--veyro-color-border);
+    border-radius: 13px;
+}
+
+.finance-card span {
+    color: var(--veyro-color-text-muted);
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.finance-card strong {
+    font-size: clamp(17px, 4vw, 22px);
+    font-weight: 850;
+
+    letter-spacing: -0.5px;
+
+    overflow-wrap: anywhere;
+}
+
+.finance-card.income strong {
+    color: #168653;
+}
+
+.finance-card.expenses strong {
+    color: #d9232e;
+}
+
+
+/* =========================================================
+   GESAMTBILANZ
+========================================================= */
+
+.finance-balance {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+
+    padding: 18px;
+
+    background: var(--veyro-color-surface);
+
+    border: 1px solid var(--veyro-color-border);
+    border-left: 4px solid #d9232e;
+
+    border-radius: 12px;
+
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.035);
+}
+
+.finance-balance span {
+    color: var(--veyro-color-text-muted);
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.finance-balance strong {
+    color: #168653;
+
+    font-size: 27px;
+    font-weight: 900;
+
+    letter-spacing: -0.8px;
+    overflow-wrap: anywhere;
+}
+
+.finance-balance strong.positive {
+    color: #168653;
+}
+
+.finance-balance strong.negative {
+    color: #d9232e;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .finance-transaction {
+        gap: 8px;
+    }
+
+    .finance-transaction-amount {
+        font-size: 12px;
+    }
+
+    .finance-summary {
+        gap: 8px;
+    }
+
+    .finance-card {
+        padding: 12px;
+    }
+
+    .finance-balance {
+        padding: 15px;
+    }
+
+    .finance-balance strong {
+        font-size: 23px;
+    }
+
+}
