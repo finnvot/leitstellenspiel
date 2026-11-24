@@ -1,0 +1,1938 @@
+/* MODAL HEADER */
+
+.modal-header,
+.incident-heading {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 24px;
+
+    padding-right: 35px;
+}
+
+.modal-icon,
+.incident-icon {
+    width: 50px;
+    height: 50px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--veyro-color-primary),
+            #b51d27
+        );
+
+    color: var(--veyro-color-background);
+
+    font-size: 19px;
+    font-weight: 900;
+
+    box-shadow:
+        0 7px 18px rgba(217, 35, 46, 0.25);
+}
+
+.incident-icon {
+    background:
+        linear-gradient(
+            135deg,
+            #ff9f1a,
+            #e56d00
+        );
+
+    box-shadow:
+        0 7px 18px rgba(230, 120, 0, 0.24);
+}
+
+.incident-heading p {
+    margin: 5px 0 0;
+
+    color: #858a90;
+
+    font-size: 13px;
+}
+
+/* EINSATZ */
+
+.incident-modal {
+    width: min(540px, 100%);
+
+    padding: 30px;
+
+    background:
+        var(--veyro-color-background);
+
+    border:
+        1px solid rgba(0, 0, 0, 0.35);
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 30px 90px rgba(0, 0, 0, 0.28);
+}
+
+.incident-heading {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 22px;
+
+    padding-right: 40px;
+
+    padding-bottom: 18px;
+
+    border-bottom:
+        1px solid #eceef0;
+}
+
+.incident-heading > div:last-child {
+    min-width: 0;
+
+    flex: 1;
+}
+
+.incident-heading h2 {
+    margin: 0;
+
+    color: var(--veyro-color-text);
+
+    font-size: 25px;
+    font-weight: 850;
+
+    line-height: 1.15;
+}
+
+.incident-heading p {
+    margin: 7px 0 0;
+
+    color: #858a90;
+
+    font-size: 13px;
+
+    line-height: 1.45;
+}
+
+.incident-info {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+
+    margin-bottom: 24px;
+}
+
+/* =========================================================
+   NEUE EINSATZ-NAVIGATION
+========================================================= */
+
+.incident-tabs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 0 0 24px;
+    border-bottom: 1px solid var(--veyro-color-border);
+}
+
+.incident-tab {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 54px;
+    padding: 0 8px;
+    border: 0;
+    border-bottom: 3px solid transparent;
+    background: transparent;
+    color: var(--veyro-color-text-muted);
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition:
+        color 0.15s ease,
+        border-color 0.15s ease,
+        background 0.15s ease;
+}
+
+.incident-tab:hover {
+    color: var(--veyro-color-text);
+    background: var(--veyro-color-input);
+}
+
+.incident-tab.active {
+    color: var(--veyro-color-text);
+    border-bottom-color: #d9232e;
+}
+
+.incident-tab-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    font-size: 13px;
+    color: #858a90;
+}
+
+.incident-tab.active .incident-tab-icon {
+    color: #d9232e;
+}
+
+/* =========================================================
+   EINSATZ-TABS
+========================================================= */
+
+.incident-panel {
+    color: var(--veyro-color-text);
+    display: none;
+}
+
+.incident-panel.active {
+    color: var(--veyro-color-text);
+    display: block;
+}
+
+/* =========================================================
+   ÜBERSICHT
+========================================================= */
+
+.incident-overview-title {
+    margin-bottom: 20px;
+}
+
+.incident-overview-title strong {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--veyro-color-text);
+    font-size: 18px;
+    font-weight: 850;
+}
+
+.incident-overview-title p {
+    margin: 0;
+    color: #858a90;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.incident-overview-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.incident-overview-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 82px;
+    padding: 13px;
+    border: 1px solid var(--veyro-color-border);
+    border-radius: 13px;
+    background: linear-gradient(
+        135deg,
+        var(--veyro-color-card),
+        var(--veyro-color-card-secondary)
+    );
+}
+
+.incident-overview-card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: var(--veyro-color-background);
+    color: #d9232e;
+    font-size: 15px;
+    font-weight: 900;
+}
+
+.incident-overview-card span {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--veyro-color-text-muted);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.incident-overview-card strong {
+    display: block;
+    color: var(--veyro-color-text);
+    font-size: 13px;
+    font-weight: 850;
+    line-height: 1.3;
+}
+
+/* =========================================================
+   MASSNAHMEN / PROTOKOLL
+========================================================= */
+
+.incident-placeholder {
+    padding: 18px;
+
+    border:
+        1px solid var(--veyro-color-background);
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--veyro-color-card),
+            var(--veyro-color-card-secondary)
+        );
+
+    text-align: left;
+}
+
+.incident-placeholder strong {
+    display: block;
+
+    margin-bottom: 14px;
+
+    color: var(--veyro-color-text);
+
+    font-size: 16px;
+    font-weight: 850;
+}
+
+.incident-placeholder p {
+    margin: 0;
+
+    padding: 13px 14px;
+
+    border:
+        1px solid var(--veyro-color-border);
+
+    border-radius: 11px;
+
+    background: var(--veyro-color-surface);
+
+    color: var(--veyro-color-text-secondary);
+
+    font-size: 13px;
+    font-weight: 700;
+
+    line-height: 1.4;
+
+    box-shadow:
+        0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+/* =========================================================
+   FAHRZEUGE TAB
+========================================================= */
+
+.incident-vehicles-panel {
+
+    color: var(--veyro-color-text);
+    padding: 18px;
+
+    border:
+        1px solid var(--veyro-color-border);
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--veyro-color-card),
+            var(--veyro-color-card-secondary)
+        );
+
+    text-align: left;
+}
+
+.section-title strong {
+
+    color: var(--veyro-color-text);
+
+}
+
+/* =========================================================
+   ALTE INTERNE INFO-KARTEN
+   Werden weiterhin von incidents.js verwendet,
+   aber nicht zusätzlich in der neuen Übersicht angezeigt.
+========================================================= */
+
+.incident-internal-info {
+    display: none;
+}
+
+/* =========================================================
+   FAHRZEUGE
+========================================================= */
+
+.incident-panel[data-incident-panel="vehicles"] .alarm-section {
+    margin-top: 0;
+}
+
+.incident-panel[data-incident-panel="vehicles"] #incidentVehicles {
+    max-height: 320px;
+}
+
+.incident-panel[data-incident-panel="vehicles"] .vehicle-option {
+    min-height: 68px;
+    padding: 12px 14px;
+    border-radius: 14px;
+}
+
+
+/* =========================================================
+   EINSATZ TABS - ICONS
+========================================================= */
+
+.incident-tab-icon {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 18px;
+    height: 18px;
+
+    flex-shrink: 0;
+}
+
+
+.incident-tab-icon svg {
+    width: 17px;
+    height: 17px;
+
+    fill: none;
+
+    stroke: currentColor;
+
+    stroke-width: 1.8;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+.incident-tab.active
+.incident-tab-icon {
+    color: #d9232e;
+}
+
+
+/* =========================================================
+   EINSATZ - ALARMIERTE FAHRZEUGE
+========================================================= */
+
+.incident-assigned-vehicle {
+    display: grid;
+
+    color: var(--veyro-color-text);
+
+    grid-template-columns: 42px minmax(0, 1fr) auto;
+    grid-template-rows: auto auto;
+
+    align-items: center;
+
+    column-gap: 12px;
+    row-gap: 8px;
+
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 12px 10px 12px 12px;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+
+    background: var(--veyro-color-surface);
+
+    margin-bottom: 10px;
+}
+
+
+.incident-assigned-vehicle-icon {
+    grid-column: 1;
+    grid-row: 1;
+
+    color: var(--veyro-color-text);
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+    background: var(--veyro-color-background);
+
+    font-size: 12px;
+    font-weight: 800;
+}
+
+
+.incident-assigned-vehicle-content {
+    grid-column: 2;
+    grid-row: 1;
+
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+
+.incident-assigned-vehicle-name {
+    color: var(--veyro-color-text);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 14px;
+}
+
+
+.incident-assigned-vehicle-station {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: var(--veyro-color-text-secondary);
+    font-size: 12px;
+}
+
+
+.incident-assigned-vehicle-status {
+    grid-column: 3;
+    grid-row: 1;
+
+    justify-self: end;
+
+    padding: 5px 8px;
+
+    border-radius: 8px;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+
+
+.incident-assigned-vehicle-status.travelling {
+    color: #b45309;
+    background: var(--veyro-color-surface);
+}
+
+
+.incident-assigned-vehicle-status.arrived {
+    color: #166534;
+    background: var(--veyro-color-surface);
+}
+
+.incident-assigned-vehicle-actions {
+    grid-column: 3;
+    grid-row: 2;
+
+    justify-self: end;
+
+    display: flex;
+    gap: 8px;
+}
+
+.incident-assigned-vehicle-recall {
+    width: 38px;
+    height: 38px;
+
+    margin: 0;
+    padding: 0;
+
+    border: 1px solid var(--veyro-color-border);
+    border-radius: 9px;
+
+    background: transparent;
+    color: var(--veyro-color-text);
+
+    font-size: 20px;
+    line-height: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+}
+
+.incident-assigned-vehicle-recall:hover {
+    border-color: #9ca3af;
+}
+
+
+/* =========================================================
+   WEITER-PFEIL
+   Nur bei "Vor Ort"
+========================================================= */
+
+.incident-assigned-vehicle-next {
+    width: 38px;
+    height: 38px;
+
+    margin: 0;
+    padding: 0;
+
+    border: 1px solid var(--veyro-color-border);
+    border-radius: 9px;
+
+    background: var(--veyro-color-surface);
+    color: var(--veyro-color-text);
+
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+}
+
+
+.incident-assigned-vehicle-next:hover {
+    background: var(--veyro-color-background);
+    border-color: #9ca3af;
+}
+
+
+.incident-assigned-vehicle-next:active {
+    transform: translateX(2px);
+}
+
+/* =========================================================
+   ELW - EINSATZABSCHNITTE
+========================================================= */
+
+.incident-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 14px;
+    margin-bottom: 20px;
+}
+
+.incident-section {
+    padding: 14px;
+    border: 1px solid #e0e2e5;
+    border-radius: 13px;
+    background: var(--veyro-color-input);
+}
+
+.incident-section-header {
+    margin-bottom: 10px;
+}
+
+.incident-section-header strong {
+    color: #30353a;
+    font-size: 13px;
+    font-weight: 850;
+}
+
+.incident-section-vehicles {
+    min-height: 54px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding: 8px;
+    border: 1px dashed var(--veyro-color-border-strong);
+    border-radius: 10px;
+    background: var(--veyro-color-surface);
+    transition: background .15s ease, border-color .15s ease;
+}
+
+.incident-section-vehicles.drag-over,
+.incident-section-available.drag-over {
+    background: var(--veyro-color-surface);
+    border-color: #efb5b8;
+}
+
+.incident-section-available {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-height: 54px;
+    padding: 10px;
+    border: 1px dashed var(--veyro-color-border-strong);
+    border-radius: 12px;
+    background: var(--veyro-color-input);
+    transition: background .15s ease, border-color .15s ease;
+}
+
+.incident-section-vehicle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 12px;
+    border: 1px solid var(--veyro-color-border);
+    border-radius: 10px;
+    background: var(--veyro-color-surface);
+    cursor: grab;
+}
+
+.incident-section-vehicle:active {
+    cursor: grabbing;
+}
+
+.incident-section-vehicle strong {
+    color: var(--veyro-color-text);
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.incident-section-vehicle span {
+    color: var(--veyro-color-text-muted);
+    font-size: 10px;
+    font-weight: 700;
+    text-align: right;
+}
+
+.incident-section-empty {
+    padding: 10px;
+    color: var(--veyro-color-text-muted);
+    font-size: 10px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.incident-section-vehicle {
+    touch-action: none;
+}
+
+.touch-dragging {
+    opacity: 0.6;
+}
+
+/* =========================================================
+   EINSATZABSCHNITT OVERLAY
+========================================================= */
+
+.incident-sections-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(10, 15, 22, 0.72);
+    backdrop-filter: blur(5px);
+}
+
+.incident-sections-panel {
+    width: min(850px, 100%);
+    max-height: 85vh;
+
+    display: flex;
+    flex-direction: column;
+
+    background: var(--veyro-color-surface);
+    border-radius: 14px;
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+
+    overflow: hidden;
+}
+
+.incident-sections-overlay-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 18px 22px;
+
+    background: var(--veyro-color-background);
+    border-bottom: 1px solid var(--veyro-color-border-strong);
+}
+
+.incident-sections-overlay-header strong {
+    font-size: 17px;
+    color: var(--veyro-color-text);
+}
+
+.incident-sections-close {
+    width: 34px;
+    height: 34px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: var(--veyro-color-surface-hover);
+    color: #444;
+
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.incident-sections-overlay-content {
+    padding: 20px;
+    overflow-y: auto;
+}
+
+/* =========================================================
+   ELW - EINSATZABSCHNITTE
+========================================================= */
+
+.incident-section {
+    padding: 12px;
+    border: 2px solid #c51d28;
+    border-radius: 14px;
+    background: #c51d28;
+}
+
+.incident-section-header {
+    padding: 4px 6px 10px;
+    color: var(--veyro-color-surface);
+}
+
+.incident-section-header strong {
+    color: var(--veyro-color-surface);
+    font-size: 14px;
+    font-weight: 850;
+}
+
+/* Weißer Bereich für die Fahrzeuge */
+.incident-section-vehicles {
+    min-height: 80px;
+    padding: 10px;
+    border-radius: 10px;
+    background: var(--veyro-color-surface);
+    border: 1px solid var(--veyro-color-border);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Fahrzeugkarten */
+.incident-section-vehicle {
+    padding: 10px 12px;
+    border: 1px solid var(--veyro-color-surface-hover);
+    border-radius: 9px;
+    background: var(--veyro-color-input);
+    cursor: grab;
+}
+
+.incident-section-vehicle:active {
+    cursor: grabbing;
+}
+
+.incident-section-vehicle strong {
+    display: block;
+    color: var(--veyro-color-text);
+    font-size: 12px;
+    font-weight: 850;
+}
+
+.incident-section-vehicle span {
+    display: block;
+    margin-top: 3px;
+    color: var(--veyro-color-text-muted);
+    font-size: 10px;
+    font-weight: 700;
+}
+
+/* Drop-Zone beim Ziehen */
+.incident-section.drag-over {
+    background: #a91923;
+}
+
+.incident-section.drag-over .incident-section-vehicles {
+    background: var(--veyro-color-surface-secondary);
+}
+
+.incident-section-empty {
+    display: block;
+    padding: 12px;
+    color: var(--veyro-color-text-muted);
+    font-size: 11px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.incident-objectives {
+    margin-bottom: 15px;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.incident-objectives summary {
+    color: var(--veyro-color-text);
+    cursor: pointer;
+    font-weight: bold;
+    user-select: none;
+}
+
+.incident-objectives summary:hover {
+    color: #45c77a;
+}
+
+.incident-objective-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.incident-objective {
+    color: var(--veyro-color-text);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px;
+    border-radius: 7px;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.incident-objective.completed {
+    opacity: 0.65;
+}
+
+.incident-objective-icon {
+    font-weight: bold;
+    color: #f0ad4e;
+}
+
+.incident-objective.completed .incident-objective-icon {
+    color: #45c77a;
+}
+
+
+.incident-list-card {
+    border-left: 4px solid #d9232e;
+    border-radius: 12px;
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.035);
+}
+
+.incident-list-card.incident-card-green {
+    border-left-color: #249b58;
+}
+
+.incident-list-card.incident-card-orange {
+    border-left-color: #ed941d;
+}
+
+.incident-list-card.incident-card-red {
+    border-left-color: #d9232e;
+}
+
+.alarm-section {
+    margin-top: 0;
+}
+
+
+#incidentVehicles {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    max-height: 260px;
+
+    overflow-y: auto;
+
+    padding-right: 2px;
+}
+
+.vehicle-option {
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+    min-height: 58px;
+
+    padding: 10px 12px;
+
+    border:
+        1px solid var(--veyro-color-surface-hover);
+
+    border-radius: 12px;
+
+    background: var(--veyro-color-input);
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s ease,
+        border-color 0.15s ease,
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+.vehicle-option:hover {
+    background: var(--veyro-color-primary-light);
+
+    border-color: #efb5b8;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.vehicle-option input {
+    width: 17px;
+    height: 17px;
+
+    flex-shrink: 0;
+
+    margin: 0 6px 0 0;
+
+    accent-color: #d9232e;
+
+    cursor: pointer;
+}
+
+.vehicle-option-name {
+    min-width: 0;
+
+    flex: 1;
+
+    overflow: hidden;
+
+    color: var(--veyro-color-text);
+
+    font-size: 13px;
+    font-weight: 800;
+
+    line-height: 1.25;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+}
+
+.vehicle-option-station {
+    flex-shrink: 0;
+
+    max-width: 145px;
+
+    margin-left: 18px;
+
+    overflow: hidden;
+
+    color: var(--veyro-color-text-muted);
+
+    font-size: 10px;
+    font-weight: 600;
+
+    line-height: 1.25;
+
+    text-align: right;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+}
+
+.vehicle-option-unavailable {
+    opacity: 0.42;
+
+    cursor: not-allowed;
+}
+
+.vehicle-option-unavailable:hover {
+    background: var(--veyro-color-input);
+
+    border-color: var(--veyro-color-surface-hover);
+
+    transform: none;
+
+    box-shadow: none;
+}
+
+.alarm-button {
+    margin-top: 18px !important;
+
+    min-height: 48px;
+
+    font-size: 14px;
+}
+
+
+/* EINSATZMARKER */
+
+.incident-marker-wrapper {
+    width: 42px;
+    height: 42px;
+
+    pointer-events: auto;
+}
+
+.incident-marker {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 4px solid white;
+
+    border-radius: 50%;
+
+    background-color: #ff9800;
+
+    color: white;
+
+    font-size: 22px;
+    font-weight: 900;
+
+    box-shadow:
+        0 3px 8px rgba(0, 0, 0, 0.4);
+
+    cursor: pointer;
+}
+
+
+/* ==================================================================================================
+   Variablen bis hier fertig !!!
+================================================================================================== */
+
+/* =========================================================
+   PATIENTENMONITOR – FENSTER
+========================================================= */
+
+#patientMonitorWindow {
+    position: fixed;
+    inset: 0;
+    z-index: 5000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(5, 12, 20, 0.82);
+    backdrop-filter: blur(8px);
+    overflow-y: auto;
+    font-family: Arial, sans-serif;
+}
+
+#patientMonitorWindow *,
+#patientMonitorWindow *::before,
+#patientMonitorWindow *::after {
+    box-sizing: border-box;
+}
+
+#patientMonitorWindow .patient-monitor {
+    width: 100%;
+    max-width: 1500px;
+    max-height: 96vh;
+    overflow-y: auto;
+    padding: 24px;
+    border: 1px solid #d6dce3;
+    border-radius: 18px;
+    background: #f2f5f8;
+    color: #17212b;
+    box-shadow: 0 25px 90px rgba(0, 0, 0, 0.4);
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.patient-monitor-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #d8dee5;
+}
+
+.patient-monitor-eyebrow {
+    display: block;
+    margin-bottom: 5px;
+    color: #64748b;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.patient-monitor-heading h2 {
+    margin: 0;
+    color: #17212b;
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.patient-monitor-heading p {
+    margin: 5px 0 0;
+    color: #64748b;
+    font-size: 13px;
+}
+
+.patient-monitor-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.patient-monitor-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 13px;
+    border: 1px solid #bbebd1;
+    border-radius: 20px;
+    background: #e9fbf1;
+    color: #16834b;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.patient-monitor-status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #16b866;
+    box-shadow: 0 0 8px rgba(22, 184, 102, 0.6);
+}
+
+.patient-monitor-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border: 0;
+    border-radius: 9px;
+    background: #e3e8ee;
+    color: #344253;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.patient-monitor-close:hover {
+    background: #dc3545;
+    color: white;
+}
+
+
+/* =========================================================
+   VITALPARAMETER
+========================================================= */
+
+.patient-monitor-vitals {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 12px;
+    margin: 18px 0;
+}
+
+.patient-monitor-vital-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 0;
+    padding: 13px 16px;
+    border: 1px solid #dce3e9;
+    border-left: 4px solid #64748b;
+    border-radius: 10px;
+    background: #ffffff;
+}
+
+.patient-monitor-vital-card .vital-label {
+    color: #64748b;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.patient-monitor-vital-card strong {
+    margin-top: 5px;
+    color: #17212b;
+    font-size: 25px;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.patient-monitor-vital-card .vital-unit {
+    margin-top: 3px;
+    color: #8491a0;
+    font-size: 10px;
+}
+
+.vital-pulse {
+    border-left-color: #e34b5d;
+}
+
+.vital-spo2 {
+    border-left-color: #3188d5;
+}
+
+.vital-pressure {
+    border-left-color: #9465d5;
+}
+
+.vital-breathing {
+    border-left-color: #17a58a;
+}
+
+.vital-temperature {
+    border-left-color: #e69b36;
+}
+
+
+/* =========================================================
+   EKG
+========================================================= */
+
+.patient-monitor-ekg {
+    margin-bottom: 20px;
+    overflow: hidden;
+    border: 1px solid #263d38;
+    border-radius: 12px;
+    background: #071713;
+}
+
+.patient-monitor-ekg-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+    border-bottom: 1px solid rgba(0, 255, 120, 0.15);
+    background: #0b211a;
+    color: #00ff88;
+}
+
+.patient-monitor-ekg-title {
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.patient-monitor-ekg-subtitle {
+    margin-left: 10px;
+    color: #8bc7a8;
+    font-size: 11px;
+}
+
+.patient-monitor-ekg-settings {
+    color: #8bc7a8;
+    font-size: 10px;
+}
+
+.patient-monitor-ekg-screen {
+    position: relative;
+    height: 125px;
+    padding: 5px;
+    background-color: #06140f;
+    background-image:
+        linear-gradient(rgba(0, 255, 120, 0.10) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 120, 0.10) 1px, transparent 1px),
+        linear-gradient(rgba(0, 255, 120, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 120, 0.04) 1px, transparent 1px);
+    background-size:
+        25px 25px,
+        25px 25px,
+        5px 5px,
+        5px 5px;
+}
+
+.patient-monitor-ekg-screen canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+
+/* =========================================================
+   HAUPTBEREICH – DREI SPALTEN
+========================================================= */
+
+.patient-monitor-main {
+    display: grid;
+    grid-template-columns:
+        minmax(220px, 0.85fr)
+        minmax(300px, 1.1fr)
+        minmax(240px, 0.9fr);
+    gap: 16px;
+    align-items: stretch;
+}
+
+.patient-monitor-panel {
+    min-width: 0;
+    min-height: 500px;
+    padding: 16px;
+    border: 1px solid #dce3e9;
+    border-radius: 12px;
+    background: #ffffff;
+}
+
+.patient-monitor-panel-heading {
+    margin-bottom: 15px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #e8edf1;
+}
+
+.patient-monitor-panel-heading h3 {
+    margin: 0;
+    color: #1e293b;
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.patient-monitor-panel-heading span {
+    display: block;
+    margin-top: 5px;
+    color: #8793a1;
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   KÖRPERSILHOUETTE
+========================================================= */
+
+.patient-body-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 410px;
+    padding: 5px;
+    overflow: hidden;
+    border-radius: 10px;
+    background:
+        radial-gradient(
+            ellipse at center,
+            #f5f7f9 0%,
+            #ffffff 75%
+        );
+}
+
+.patient-body-view {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    height: 410px;
+    aspect-ratio: 300 / 410;
+}
+
+.patient-body-image {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    pointer-events: none;
+    user-select: none;
+}
+
+
+/* =========================================================
+   VERLETZUNGS-OVERLAYS
+========================================================= */
+
+.patient-injury-overlay {
+    position: absolute;
+    z-index: 5;
+    display: block;
+    object-fit: contain;
+    object-position: center;
+    cursor: pointer;
+    opacity: 0.88;
+    filter: drop-shadow(0 0 4px rgba(220, 30, 45, 0.45));
+    transition:
+        opacity 0.2s ease,
+        filter 0.2s ease,
+        transform 0.2s ease;
+    user-select: none;
+}
+
+.patient-injury-overlay[hidden] {
+    display: none !important;
+}
+
+.patient-injury-overlay:hover {
+    z-index: 8;
+    opacity: 1;
+    filter:
+        drop-shadow(0 0 5px rgba(220, 30, 45, 0.9))
+        brightness(1.1);
+    transform: scale(1.04);
+}
+
+.patient-injury-overlay.selected {
+    z-index: 9;
+    opacity: 1;
+    filter:
+        drop-shadow(0 0 7px #ff263c)
+        brightness(1.15);
+    transform: scale(1.06);
+}
+
+
+/* =========================================================
+   LEGENDE
+========================================================= */
+
+.patient-monitor-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-top: 12px;
+    color: #8491a0;
+    font-size: 10px;
+}
+
+.patient-monitor-legend span {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.patient-legend-red {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #e53949;
+    box-shadow: 0 0 5px rgba(229, 57, 73, 0.4);
+}
+
+
+/* =========================================================
+   BEFUNDE – KEINE AUSWAHL
+========================================================= */
+
+.patient-monitor-no-selection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    padding: 20px;
+    text-align: center;
+}
+
+.patient-monitor-no-selection-icon,
+.patient-monitor-empty-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    margin-bottom: 14px;
+    border: 1px solid #dce3e9;
+    border-radius: 50%;
+    background: #f3f6f8;
+    color: #8491a0;
+    font-size: 23px;
+}
+
+.patient-monitor-no-selection strong,
+.patient-monitor-empty strong {
+    color: #334155;
+    font-size: 13px;
+}
+
+.patient-monitor-no-selection p,
+.patient-monitor-empty p {
+    max-width: 230px;
+    margin: 8px 0 0;
+    color: #8793a1;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   BEFUNDE – AUSGEWÄHLTER BEREICH
+========================================================= */
+
+.patient-monitor-selected-finding {
+    padding: 5px 2px;
+}
+
+.patient-monitor-finding-category,
+.patient-monitor-measure-category {
+    color: #8a96a4;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+}
+
+.patient-monitor-selected-finding h3 {
+    margin: 7px 0 12px;
+    color: #1e293b;
+    font-size: 22px;
+}
+
+.patient-monitor-finding-highlight {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px;
+    border: 1px solid #f4c6cb;
+    border-radius: 8px;
+    background: #fff1f2;
+    color: #c6283b;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.patient-monitor-finding-highlight span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #e53949;
+}
+
+.patient-monitor-selected-finding > p {
+    margin: 14px 0;
+    color: #64748b;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.patient-monitor-finding-data {
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px solid #e8edf1;
+}
+
+.patient-monitor-finding-data strong {
+    color: #334155;
+    font-size: 12px;
+}
+
+.patient-monitor-finding-data p {
+    margin: 8px 0 0;
+    color: #8793a1;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   MASSNAHMEN
+========================================================= */
+
+.patient-monitor-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    padding: 15px;
+    text-align: center;
+}
+
+.patient-monitor-selected-measure {
+    padding: 5px 2px;
+}
+
+.patient-monitor-selected-measure > strong {
+    display: block;
+    margin-top: 8px;
+    color: #1e293b;
+    font-size: 17px;
+}
+
+.patient-monitor-selected-measure > p {
+    margin-top: 10px;
+    color: #8793a1;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.patient-monitor-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 18px;
+    padding-top: 13px;
+    border-top: 1px solid #dce3e9;
+    color: #98a3af;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+}
+
+
+
+/* Körpersilhouette */
+.patient-body-image {
+    z-index: 1;
+}
+
+/* Verletzungen standardmäßig */
+.patient-injury-overlay {
+    z-index: 2;
+}
+
+/* Torso hinter den Armen */
+.patient-injury-overlay[data-body-part="torso"] {
+    z-index: 2;
+}
+
+/* Arme vor dem Torso */
+.patient-injury-overlay[data-body-part="linkerArm"],
+.patient-injury-overlay[data-body-part="rechterArm"] {
+    z-index: 4;
+}
+
+/* Beine */
+.patient-injury-overlay[data-body-part="linkesBein"],
+.patient-injury-overlay[data-body-part="rechtesBein"] {
+    z-index: 3;
+}
+
+/* Kopf */
+.patient-injury-overlay[data-body-part="kopf"] {
+    z-index: 5;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1050px) {
+
+    .patient-monitor-main {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .patient-monitor-body-section {
+        grid-column: 1 / -1;
+        grid-row: 1;
+    }
+
+    .patient-body-view {
+        max-width: 280px;
+    }
+
+    .patient-monitor-panel {
+        min-height: 350px;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    #patientMonitorWindow {
+        padding: 6px;
+        align-items: flex-start;
+    }
+
+    #patientMonitorWindow .patient-monitor {
+        max-height: none;
+        padding: 13px;
+        border-radius: 12px;
+    }
+
+    .patient-monitor-header {
+        align-items: flex-start;
+    }
+
+    .patient-monitor-heading h2 {
+        font-size: 20px;
+    }
+
+    .patient-monitor-status {
+        font-size: 0;
+        padding: 9px;
+    }
+
+    .patient-monitor-vitals {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .patient-monitor-vital-card:last-child {
+        grid-column: 1 / -1;
+    }
+
+    .patient-monitor-main {
+        grid-template-columns: 1fr;
+    }
+
+    .patient-monitor-body-section {
+        grid-column: auto;
+        grid-row: auto;
+    }
+
+    .patient-monitor-panel {
+        min-height: auto;
+    }
+
+    .patient-body-container {
+        min-height: 390px;
+    }
+
+    .patient-body-view {
+        height: 390px;
+        max-width: 280px;
+    }
+
+    .patient-monitor-ekg-screen {
+        height: 100px;
+    }
+
+    .patient-monitor-footer {
+        flex-direction: column;
+    }
+
+}
+
+
+.patient-body-selector {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 7px;
+    margin-top: 12px;
+}
+
+.patient-body-selector button {
+    padding: 9px;
+    border: 1px solid #dce3e9;
+    border-radius: 7px;
+    background: #f5f7f9;
+    color: #334155;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.patient-body-selector button:hover,
+.patient-body-selector button.selected {
+    border-color: #dc3545;
+    background: #fff0f1;
+    color: #c6283b;
+}
+
+@media (max-width: 600px) {
+
+    .vehicle-option {
+        min-height: 58px;
+
+        padding: 10px;
+    }
+
+    .vehicle-option-name {
+        font-size: 12px;
+    }
+
+    .vehicle-option-station {
+        max-width: 105px;
+
+        font-size: 9px;
+    }
+
+    .incident-info {
+        grid-template-columns: 1fr;
+    }
+
+        .incident-modal {
+        width: min(500px, 100%);
+
+    }
+
+    .incident-heading {
+        gap: 12px;
+
+        margin-bottom: 18px;
+
+        padding-right: 35px;
+
+        padding-bottom: 16px;
+    }
+
+    .incident-icon {
+        width: 46px;
+        height: 46px;
+
+        border-radius: 13px;
+
+        font-size: 18px;
+    }
+
+    .incident-heading h2 {
+        font-size: 22px;
+    }
+
+    .incident-heading p {
+        font-size: 12px;
+    }
+
+    .incident-info {
+        grid-template-columns: 1fr 1fr;
+
+        gap: 8px;
+
+        margin-bottom: 20px;
+    }
+
+    #incidentVehicles {
+        max-height: 230px;
+    }
+
+    .incident-tabs {
+        margin-left: -4px;
+        margin-right: -4px;
+    }
+
+    .incident-tab {
+        min-height: 50px;
+        gap: 4px;
+        font-size: 11px;
+    }
+
+    .incident-tab-icon {
+        display: none;
+    }
+
+    .incident-overview-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .incident-overview-card {
+        min-height: 68px;
+    }
+
+}
+

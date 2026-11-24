@@ -1,0 +1,1632 @@
+/* =========================================================
+   EINSATZFILTER
+========================================================= */
+
+.incident-filters {
+    padding: 15px;
+    margin-bottom: 12px;
+    background: var(--veyro-color-surface);
+    border: 1px solid var(--veyro-color-border);
+    border-radius: 12px;
+}
+
+.incident-filters-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.incident-filters-title {
+    font-size: 15px;
+    color: var(--veyro-color-text);
+}
+
+.incident-filter-toggle {
+    display: none;
+    padding: 9px 16px;
+    border: none;
+    border-radius: 8px;
+    background: #d9232e;
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.incident-filters-content {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.incident-filter {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--veyro-color-text-secondary);
+}
+
+.incident-filter-select {
+    width: 100%;
+    min-height: 42px;
+    padding: 0 12px;
+    border: 1px solid #dedede;
+    border-radius: 8px;
+    background: #f9f9f9;
+    color: #252525;
+    font-size: 14px;
+    outline: none;
+}
+
+.incident-filter-select:focus {
+    border-color: #d9232e;
+    box-shadow: 0 0 0 2px rgba(217, 35, 46, 0.1);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .incident-filters {
+        padding: 10px 12px;
+    }
+
+    .incident-filters-header {
+        min-height: 38px;
+    }
+
+    .incident-filters-title {
+        display: none;
+    }
+
+    .incident-filter-toggle {
+        display: block;
+        width: 100px;
+        height: 42px;
+        
+        min-height: 42px;
+    }
+
+    .incident-sort-toggle {
+        display: block;
+        width: 42px !important;
+        height: 42px; 
+        
+        min-height: 42px;
+    }
+
+    .incident-filter-controls {
+        width: 200px;
+    }
+
+    .incident-filters-content {
+        display: none;
+        grid-template-columns: 1fr;
+        margin-top: 12px;
+    }
+
+    .incident-filters.filters-open
+    .incident-filters-content {
+        display: grid;
+    }
+
+}
+
+
+.incident-filter-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.incident-sort-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 38px;
+    height: 38px;
+
+    padding: 0;
+
+    border: 1px solid #d5d9df;
+    border-radius: 8px;
+
+    background: var(--veyro-color-surface);
+    color: var(--veyro-color-text-secondary);
+
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.incident-sort-toggle:hover {
+    background: var(--veyro-color-surface-secondary);
+    border-color: #aeb8c6;
+    color: var(--veyro-color-text);
+}
+
+.incident-sort-toggle svg {
+    display: block;
+}
+
+
+/* =========================================================
+   HAUPTNAVIGATION – DEZENTE UNTERE MENÜLEISTE
+========================================================= */
+
+.main-navigation {
+    position: fixed;
+
+    left: 50%;
+    bottom: 14px;
+
+    transform: translateX(-50%);
+
+    z-index: 3500;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 3px;
+
+    padding: 4px;
+
+    background: var(--veyro-color-surface);
+
+
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 3px 12px rgba(0, 0, 0, 0.10);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+
+/* =========================================================
+   EINZELNE NAVIGATIONSBUTTONS
+========================================================= */
+
+.main-navigation-button {
+    position: relative;
+
+    width: 68px;
+    height: 52px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: 1px solid transparent;
+    border-radius: 9px;
+
+    background: transparent;
+
+    color: #777d83;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s ease,
+        color 0.15s ease,
+        border-color 0.15s ease;
+}
+
+
+/* =========================================================
+   SVG ICONS
+========================================================= */
+
+.main-navigation-button svg {
+    width: 29px;
+    height: 29px;
+
+    fill: none;
+
+    stroke: currentColor;
+
+    stroke-width: 1.65;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+
+    transition: transform 0.15s ease;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.main-navigation-button:hover {
+    background: var(--veyro-color-surface-secondary);
+
+    border-color: #eeeeee;
+
+    color: var(--veyro-color-text);
+}
+
+.main-navigation-button:hover svg {
+    transform: scale(1.04);
+}
+
+
+/* =========================================================
+   AKTIVER MENÜPUNKT – DEZENTER ROTTON
+========================================================= */
+
+.main-navigation-button.active {
+    background: var(--veyro-color-navigation-active);
+
+    border-color: #f0dddd;
+
+    color: #b94a50;
+}
+
+
+/* =========================================================
+   FOKUS
+========================================================= */
+
+.main-navigation-button:focus-visible {
+    outline: 2px solid #d9a1a4;
+    outline-offset: -3px;
+}
+
+
+/* =========================================================
+   ÜBERSICHTSSEITEN
+========================================================= */
+
+.main-navigation-page {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 2500;
+
+    padding: 30px;
+    padding-bottom: 100px;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    background: var(--veyro-color-background);
+
+    color: var(--veyro-color-text);
+}
+
+
+/* =========================================================
+   ÜBERSICHTS-HEADER
+========================================================= */
+
+.main-navigation-page-header {
+    margin-bottom: 25px;
+
+    padding: 20px 22px;
+
+    border-left: 4px solid #d9232e;
+
+    border-radius: 12px;
+
+    background: var(--veyro-color-surface);
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.07);
+}
+
+.main-navigation-page-header > span {
+    display: block;
+
+    margin-bottom: 5px;
+
+    background: var(--veyro-color-surface);
+
+    color: #9a9fa5;
+
+    font-size: 10px;
+    font-weight: 850;
+
+    letter-spacing: 1px;
+}
+
+.main-navigation-page-header h2 {
+    margin: 0;
+
+    color: #25292e;
+
+    font-size: 25px;
+    font-weight: 850;
+}
+
+.main-navigation-page-header p {
+    margin: 6px 0 0;
+
+    color: #858a90;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+.main-navigation-page::-webkit-scrollbar {
+    width: 7px;
+}
+
+.main-navigation-page::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.main-navigation-page::-webkit-scrollbar-thumb {
+    background: #cfd3d7;
+    border-radius: 10px;
+}
+
+.main-navigation-page::-webkit-scrollbar-thumb:hover {
+    background: #aeb4ba;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .main-navigation {
+        left: 15px;
+        right: 15px;
+        bottom: 10px;
+
+        width: auto;
+        max-width: none;
+
+        transform: none;
+
+        display: flex;
+        justify-content: space-around;
+
+        gap: 2px;
+        padding: 3px;
+
+        border-radius: 10px;
+    }
+
+    .main-navigation-button {
+        flex: 1;
+        min-width: 0;
+        width: auto;
+        height: 44px;
+
+        border-radius: 7px;
+    }
+
+    .main-navigation-button svg {
+        width: 25px;
+        height: 25px;
+    }
+
+    .main-navigation-page {
+        padding: 15px;
+        padding-bottom: 85px;
+    }
+
+    .main-navigation-page-header {
+        padding: 16px;
+    }
+
+    .main-navigation-page-header h2 {
+        font-size: 22px;
+    }
+
+}
+
+
+/* =========================================================
+   NAVIGATION AUSBLENDEN
+========================================================= */
+
+.main-navigation.hidden {
+    display: none !important;
+}
+
+
+/* =========================================================
+   NAVIGATIONS-ÜBERSICHTEN
+========================================================= */
+
+.main-navigation-page {
+    position: fixed;
+    inset: 0;
+    z-index: 2500;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow-y: auto;
+    overscroll-behavior: contain;
+
+    padding: 24px;
+    padding-bottom: 100px;
+
+    background: var(--veyro-color-background);
+}
+
+.main-navigation-page.hidden {
+    display: none;
+}
+
+.main-navigation-page-header {
+    padding: 22px;
+    margin-bottom: 18px;
+
+    background: var(--veyro-color-surface);
+    border: 1px solid var(--veyro-color-border);
+    border-radius: 14px;
+}
+
+.main-navigation-page-header > span {
+    display: block;
+    margin-bottom: 7px;
+
+    color: #d9232e;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+}
+
+.main-navigation-page-header h2 {
+    margin: 0;
+
+    color: var(--veyro-color-text);
+    font-size: 26px;
+    font-weight: 750;
+}
+
+.main-navigation-page-header p {
+    margin: 7px 0 0;
+
+    color: #737780;
+    font-size: 14px;
+}
+
+#activeIncidentsList,
+#currentBuildingsList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.navigation-list-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    width: 100%;
+    min-height: 82px;
+    padding: 15px;
+
+    border: 1px solid var(--veyro-color-border);
+    border-radius: 12px;
+
+    background: var(--veyro-color-surface);
+    color: var(--veyro-color-text);
+
+    text-align: left;
+    cursor: pointer;
+
+    transition:
+        background 0.15s ease,
+        border-color 0.15s ease;
+}
+
+.navigation-list-card:active {
+    background: var(--veyro-color-surface-secondary);
+    border-color: #d9232e;
+}
+
+.navigation-list-card-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 5px;
+
+    min-width: 0;
+}
+
+.navigation-list-card-title {
+    color: var(--veyro-color-text);
+    font-size: 15px;
+    font-weight: 750;
+}
+
+.navigation-list-card-subtitle {
+    color: #626873;
+    font-size: 13px;
+}
+
+.navigation-list-card-meta {
+    color: #9297a0;
+    font-size: 12px;
+}
+
+.navigation-list-card-arrow {
+    color: #a0a4ab;
+    font-size: 26px;
+    font-weight: 400;
+}
+
+.navigation-building-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 42px;
+    width: 42px;
+    height: 42px;
+
+    border-radius: 10px;
+
+    background: var(--veyro-color-background);
+    color: #d9232e;
+
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.navigation-empty {
+    padding: 30px 20px;
+
+    border: 1px dashed var(--veyro-color-border-strong);
+    border-radius: 12px;
+
+    color: #777d87;
+    background: var(--veyro-color-surface);
+
+    text-align: center;
+    font-size: 14px;
+}
+
+@media (max-width: 600px) {
+
+    .main-navigation-page {
+        padding: 15px;
+        padding-bottom: 85px;
+    }
+
+    .main-navigation-page-header {
+        padding: 16px;
+    }
+
+    .main-navigation-page-header h2 {
+        font-size: 22px;
+    }
+
+}
+
+/* =========================================
+   VEYRO – Obere Navigation
+========================================= */
+
+/* Logo */
+
+.top-navigation-brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    user-select: none;
+}
+
+.top-navigation-logo {
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #d9232e;
+    color: white;
+    border-radius: 10px;
+
+    font-size: 19px;
+    font-weight: 800;
+}
+
+.top-navigation-title {
+    color: var(--veyro-color-text);
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+/* Buttons */
+
+.top-navigation-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.top-navigation-button {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 10px;
+
+    color: var(--veyro-color-text-secondary);
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.top-navigation-button svg {
+    width: 21px;
+    height: 21px;
+
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.top-navigation-button:hover {
+    background: var(--veyro-color-surface);
+    border-color: #f5d5d7;
+    color: #d9232e;
+}
+
+.top-navigation-button:active {
+    transform: scale(0.94);
+}
+
+.top-navigation-button:focus-visible {
+    outline: 2px solid #d9232e;
+    outline-offset: 2px;
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+    .top-navigation {
+        min-height: 56px;
+        padding: 0 14px;
+    }
+
+    .top-navigation-logo {
+        width: 31px;
+        height: 31px;
+        font-size: 17px;
+    }
+
+    .top-navigation-title {
+        font-size: 15px;
+    }
+
+    .top-navigation-button {
+        width: 36px;
+        height: 36px;
+    }
+}
+
+/* =========================================
+   VEYRO – Obere Navigation im Seitenlayout
+========================================= */
+
+.top-navigation {
+    position: relative;
+    z-index: 3000;
+
+    width: 100%;
+    height: 66px;
+    min-height: 66px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 28px;
+    box-sizing: border-box;
+
+    background: var(--veyro-color-surface);
+    border-bottom: 1px solid var(--veyro-color-border);
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.top-navigation.hidden {
+    display: none !important;
+}
+
+/* Übersichtsseiten beginnen unter der oberen Navigation */
+
+.main-navigation-page {
+    top: 66px !important;
+    bottom: 0 !important;
+    height: auto !important;
+}
+
+
+/* =========================================================
+   PROFIL BUTTON
+========================================================= */
+
+.profile {
+    position: absolute;
+    left: 20px;
+    top: 115px;
+
+    margin-top: 0;
+
+    z-index: 2400;
+}
+
+.profile-button {
+    width: 52px;
+    height: 52px;
+
+    border-radius: 50%;
+    border: none;
+
+    cursor: pointer;
+
+    font-size: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================================================
+   PROFIL OVERLAY
+========================================================= */
+
+.profile-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        rgba(0, 0, 0, 0.45);
+
+    z-index: 2400;
+}
+
+
+/* =========================================================
+   PROFIL FENSTER
+========================================================= */
+
+.profile-window {
+    position: relative;
+
+    width: min(
+        90vw,
+        380px
+    );
+
+    padding: 28px;
+
+    border-radius: 18px;
+
+    background: var(--veyro-color-surface);
+
+    box-shadow:
+        0 12px 40px
+        rgba(0, 0, 0, 0.3);
+}
+
+
+/* =========================================================
+   SCHLIESSEN
+========================================================= */
+
+.profile-close {
+    position: absolute;
+
+    top: 10px;
+    right: 12px;
+
+    border: none;
+    background: none;
+
+    font-size: 28px;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   NAME
+========================================================= */
+
+#profileNameInput {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 12px;
+
+    margin-bottom: 14px;
+
+    border-radius: 10px;
+    border: 1px solid #ccc;
+
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   SPEICHERN
+========================================================= */
+
+#profileSaveButton {
+    width: 100%;
+
+    padding: 12px;
+
+    border: none;
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 16px;
+}
+
+
+.top-navigation-actions {
+    position: relative;
+}
+
+.top-navigation-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.top-navigation-logo-image {
+    display: block;
+    height: 38px;
+    width: auto;
+    max-width: 180px;
+    object-fit: contain;
+    transition: opacity 0.2s ease;
+    border-radius: 10px;
+}
+
+.top-navigation-brand:hover .top-navigation-logo-image {
+    opacity: 0.8;
+}
+
+
+.top-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+
+    width: 260px;
+    padding: 8px;
+
+    background: var(--veyro-color-surface);
+    border: 1px solid var(--veyro-color-border);
+    border-radius: 12px;
+
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.14);
+
+    z-index: 10000;
+}
+
+.top-dropdown-menu.hidden {
+    display: none !important;
+}
+
+.top-dropdown-label {
+    display: block;
+    padding: 12px 10px 6px;
+
+    color: var(--veyro-color-text-muted);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.top-dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+
+    width: 100%;
+    min-height: 43px;
+    padding: 9px 10px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: transparent;
+    color: var(--veyro-color-text);
+
+    font-size: 13px;
+    font-weight: 650;
+    text-align: left;
+
+    cursor: pointer;
+}
+
+.top-dropdown-item:hover {
+    background: var(--veyro-color-surface-secondary);
+}
+
+.top-dropdown-icon {
+    width: 22px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.top-dropdown-item > span:nth-child(2) {
+    flex: 1;
+}
+
+.top-dropdown-arrow {
+    color: #a0a5ad;
+    font-size: 21px;
+}
+
+.top-dropdown-divider {
+    height: 1px;
+    margin: 7px 3px;
+    background: #eceef0;
+}
+
+/* =========================================================
+   VEYRO – EINSTELLUNGSOVERLAY
+========================================================= */
+
+.settings-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 6000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    background: rgba(15, 19, 25, 0.48);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.settings-overlay.hidden {
+    display: none !important;
+}
+
+.settings-window {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    max-width: 1100px;
+    height: 100%;
+    max-height: 760px;
+
+    overflow: hidden;
+
+    background: var(--veyro-color-surface-secondary);
+    border: 1px solid var(--veyro-color-border);
+    border-radius: 16px;
+
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.22);
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.settings-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    flex-shrink: 0;
+
+    min-height: 76px;
+    padding: 15px 24px;
+
+    background: var(--veyro-color-surface);
+    border-bottom: 1px solid var(--veyro-color-border);
+}
+
+.settings-eyebrow {
+    display: block;
+    margin-bottom: 4px;
+
+    color: #d9232e;
+    font-size: 10px;
+    font-weight: 850;
+    letter-spacing: 2px;
+}
+
+.settings-header h2 {
+    margin: 0;
+
+    color: var(--veyro-color-text);
+    font-size: 21px;
+    font-weight: 800;
+}
+
+.settings-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 38px;
+    height: 38px;
+
+    border: 1px solid var(--veyro-color-border);
+    border-radius: 9px;
+
+    background: var(--veyro-color-surface-secondary);
+    color: var(--veyro-color-text-secondary);
+
+    font-size: 25px;
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.settings-close:hover {
+    background: var(--veyro-color-surface);
+    border-color: #f2c9cc;
+    color: #d9232e;
+}
+
+
+/* =========================================================
+   LAYOUT
+========================================================= */
+
+.settings-layout {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+}
+
+
+/* =========================================================
+   SEITENLEISTE
+========================================================= */
+
+.settings-sidebar {
+    display: flex;
+    flex-direction: column;
+
+    flex: 0 0 245px;
+    padding: 20px 13px;
+
+    overflow-y: auto;
+
+    background: var(--veyro-color-surface);
+    border-right: 1px solid var(--veyro-color-border);
+}
+
+.settings-nav-label {
+    padding: 5px 11px 12px;
+
+    color: var(--veyro-color-text-muted);
+    font-size: 10px;
+    font-weight: 850;
+    letter-spacing: 1.2px;
+}
+
+.settings-nav-item,
+.settings-subitem {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+
+    width: 100%;
+    min-height: 42px;
+    padding: 9px 11px;
+
+    border: 1px solid transparent;
+    border-radius: 8px;
+
+    background: transparent;
+    color: var(--veyro-color-text-secondary);
+
+    font-size: 13px;
+    font-weight: 650;
+    text-align: left;
+
+    cursor: pointer;
+    transition: 0.15s ease;
+}
+
+.settings-nav-item span {
+    width: 20px;
+    text-align: center;
+}
+
+.settings-nav-item:hover,
+.settings-subitem:hover {
+    background: var(--veyro-color-surface-secondary);
+    color: var(--veyro-color-text);
+}
+
+.settings-nav-item.active,
+.settings-subitem.active {
+    background: var(--veyro-color-surface);
+    border-color: #f3d9db;
+    color: #c52b35;
+}
+
+.settings-subitem {
+    min-height: 35px;
+    padding-left: 43px;
+
+    font-size: 12px;
+    font-weight: 550;
+}
+
+.settings-sidebar-divider {
+    height: 1px;
+    margin: 13px 5px;
+
+    background: var(--veyro-color-surface-hover);
+}
+
+
+/* =========================================================
+   INHALTSBEREICH
+========================================================= */
+
+.settings-content {
+    flex: 1;
+    min-width: 0;
+
+    padding: 30px;
+
+    overflow-y: auto;
+    overscroll-behavior: contain;
+}
+
+.settings-page.hidden {
+    display: none !important;
+}
+
+.settings-category {
+    display: block;
+    margin-bottom: 7px;
+
+    color: #d9232e;
+    font-size: 10px;
+    font-weight: 850;
+    letter-spacing: 1.5px;
+}
+
+.settings-page h3 {
+    margin: 0;
+
+    color: var(--veyro-color-text);
+    font-size: 25px;
+    font-weight: 850;
+}
+
+.settings-page > p {
+    margin: 8px 0 24px;
+
+    color: var(--veyro-color-text-muted);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   EINSTELLUNGSKARTEN
+========================================================= */
+
+.settings-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    margin-bottom: 12px;
+    padding: 19px;
+
+    background: var(--veyro-color-surface);
+    border: 1px solid var(--veyro-color-border);
+    border-radius: 11px;
+
+    transition: border-color 0.15s ease;
+}
+
+.settings-card:hover {
+    border-color: #d9c3c5;
+}
+
+.settings-card strong,
+.settings-card label {
+    color: var(--veyro-color-text);
+    font-size: 14px;
+    font-weight: 750;
+}
+
+.settings-card p {
+    margin: 0;
+
+    color: var(--veyro-color-text-muted);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.settings-card button {
+    align-self: flex-start;
+
+    margin-top: 5px;
+    padding: 8px 12px;
+
+    border: 1px solid var(--veyro-color-border-strong);
+    border-radius: 7px;
+
+    background: var(--veyro-color-surface);
+    color: #c52b35;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.settings-card button:hover {
+    background: #fce8e9;
+}
+
+
+/* =========================================================
+   EINGABEN
+========================================================= */
+
+.settings-input,
+.settings-select {
+    width: 100%;
+    min-height: 43px;
+    padding: 0 12px;
+
+    border: 1px solid #dfe2e6;
+    border-radius: 8px;
+
+    background: var(--veyro-color-input);
+    color: var(--veyro-color-text);
+
+    font-size: 13px;
+    outline: none;
+}
+
+.settings-input:focus,
+.settings-select:focus {
+    border-color: #d9232e;
+    box-shadow: 0 0 0 3px rgba(217, 35, 46, 0.08);
+}
+
+
+/* =========================================================
+   DESIGN-AUSWAHL
+========================================================= */
+
+.settings-design-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 13px;
+}
+
+.settings-design-option {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    padding: 10px;
+
+    border: 1px solid var(--veyro-color-border);
+    border-radius: 11px;
+
+    background: var(--veyro-color-surface);
+    color: var(--veyro-color-text);
+
+    text-align: left;
+    cursor: pointer;
+
+    transition: 0.15s ease;
+}
+
+.settings-design-option:hover {
+    border-color: #d9a9ad;
+    transform: translateY(-2px);
+}
+
+.settings-design-option.active {
+    border: 2px solid #d9232e;
+    padding: 9px;
+
+    background: var(--veyro-color-surface);
+}
+
+.settings-design-option strong {
+    font-size: 12px;
+    font-weight: 750;
+}
+
+.design-preview {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 85px;
+
+    overflow: hidden;
+    border-radius: 7px;
+}
+
+.design-veyro {
+    background: linear-gradient(135deg, #ffffff 50%, #f2eeee 50%);
+    border: 1px solid #e5e5e5;
+}
+
+.design-light {
+    background: #f4f5f7;
+    border: 1px solid #e5e5e5;
+}
+
+.design-dark {
+    background: #24282e;
+}
+
+.design-night {
+    background: linear-gradient(135deg, #101923, #263b52);
+}
+
+.design-custom {
+    background: var(--veyro-color-background);
+    border: 1px dashed #b8bdc4;
+    color: #858a90;
+    font-size: 25px;
+}
+
+/* =========================================================
+   LEITSTELLEN EINSTELLUNGEN
+========================================================= */
+
+.control-center-overlay {
+    position: fixed;
+    inset: 0;
+
+    z-index: 10000;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 15px;
+    box-sizing: border-box;
+
+    background: rgba(20, 24, 29, 0.55);
+    backdrop-filter: blur(3px);
+}
+
+.control-center-overlay.hidden {
+    display: none;
+}
+
+.control-center-panel {
+    position: relative;
+
+    width: min(500px, 100%);
+    max-height: 90vh;
+
+    display: flex;
+    flex-direction: column;
+
+    background: var(--veyro-color-surface);
+
+    border: 1px solid var(--veyro-color-border);
+    border-radius: 15px;
+
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+
+    overflow: hidden;
+}
+
+.control-center-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    flex-shrink: 0;
+
+    padding: 20px;
+
+    border-bottom: 1px solid var(--veyro-color-border);
+
+    background: var(--veyro-color-surface);
+}
+
+.control-center-header h2 {
+    margin: 3px 0 0;
+
+    color: var(--veyro-color-text);
+
+    font-size: 21px;
+    font-weight: 850;
+}
+
+.control-center-content {
+    padding: 20px;
+
+    overflow-y: auto;
+
+    background: var(--veyro-color-surface);
+}
+
+/* =========================================================
+   TRENNLINIE
+========================================================= */
+
+.control-center-divider {
+    width: 100%;
+    height: 1px;
+
+    margin: 8px 0;
+
+    background: var(--veyro-color-border);
+}
+
+/* =========================================================
+   SCROLLBARS
+========================================================= */
+
+.settings-content::-webkit-scrollbar,
+.settings-sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.settings-content::-webkit-scrollbar-thumb,
+.settings-sidebar::-webkit-scrollbar-thumb {
+    background: #d5d9de;
+    border-radius: 10px;
+}
+
+
+/* =========================================================
+   MOBIL / MEDIA
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .map-header {
+        top: 15px;
+        left: 15px;
+    }
+
+    /* PROFIL */
+
+    .profile {
+        left: 15px;
+        top: 110px;
+    }
+
+    .top-navigation {
+        height: 56px;
+        min-height: 56px;
+        padding: 0 14px;
+    }
+
+    .main-navigation-page {
+        top: 56px !important;
+    }
+
+    .settings-overlay {
+        padding: 0;
+    }
+
+    .settings-window {
+        width: 100%;
+        height: 100%;
+        max-height: none;
+
+        border: none;
+        border-radius: 0;
+    }
+
+    .settings-header {
+        min-height: 62px;
+        padding: 12px 16px;
+    }
+
+    .settings-header h2 {
+        font-size: 18px;
+    }
+
+    .settings-layout {
+        flex-direction: column;
+    }
+
+    .settings-sidebar {
+        flex: 0 0 auto;
+
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 5px;
+
+        max-height: 220px;
+        padding: 10px;
+
+        border-right: none;
+        border-bottom: 1px solid var(--veyro-color-border);
+    }
+
+    .settings-nav-label,
+    .settings-sidebar-divider {
+        display: none;
+    }
+
+    .settings-nav-item {
+        min-height: 39px;
+        padding: 8px;
+        font-size: 11px;
+    }
+
+    .settings-subitem {
+        display: none;
+    }
+
+    .settings-content {
+        padding: 20px 15px;
+    }
+
+    .settings-page h3 {
+        font-size: 22px;
+    }
+
+    .settings-design-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}

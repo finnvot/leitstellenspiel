@@ -1,0 +1,191 @@
+
+/* =========================================================
+   VEYRO – STANDARD DESIGN
+========================================================= */
+
+body[data-theme="veyro"] {
+    --veyro-color-background: #f3f4f6;
+    --veyro-color-surface: #ffffff;
+    --veyro-color-surface-secondary: #f7f8fa;
+    --veyro-color-surface-hover: #eef0f3;
+
+    --veyro-color-text: #30353a;
+    --veyro-color-text-secondary: #626970;
+    --veyro-color-text-muted: #858a90;
+
+    --veyro-color-border: #e5e7eb;
+    --veyro-color-border-strong: #d1d5db;
+    --veyro-color-border-dark: #0c0c0c;
+
+    --veyro-color-primary: #d9232e;
+    --veyro-color-primary-hover: #b91f29;
+    --veyro-color-primary-light: #fff1f2;
+
+    --veyro-color-success: #168653;
+    --veyro-color-warning: #e59a21;
+    --veyro-color-danger: #d9232e;
+    --veyro-color-info: #3578bd;
+
+    --veyro-color-input: #fafafa;
+    --veyro-color-input-border: #dfe2e6;
+
+    --veyro-color-navigation: #ffffff;
+    --veyro-color-navigation-active: #faf1f1;
+
+    --veyro-color-card: #ffffff;
+    --veyro-color-card-secondary: #f7f8f9;
+
+    --veyro-color-statusbar-stellplaetze: #30353a;
+    --veyro-color-vehicle-status-background: #eaf7ee;
+    --veyro-color-close-button: #d9232d;
+    --veyro-color-close-button-hover: #d24047;
+
+    --veyro-color-scrollbar: #cfd3d7;
+    --veyro-color-overlay: rgba(0, 0, 0, 0.45);
+
+    --veyro-color-shadow: rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================================
+   LIGHT DESIGN
+========================================================= */
+
+body[data-theme="light"] {
+    --veyro-color-background: #ffffff;
+    --veyro-color-surface: #f8fafc;
+    --veyro-color-surface-secondary: #f1f5f9;
+    --veyro-color-surface-hover: #e9eef5;
+
+    --veyro-color-text: #111827;
+    --veyro-color-text-secondary: #475569;
+    --veyro-color-text-muted: #94a3b8;
+
+    --veyro-color-border: #e2e8f0;
+    --veyro-color-border-strong: #cbd5e1;
+    --veyro-color-border-dark: #0c0c0c;
+
+    --veyro-color-primary: #d9232e;
+    --veyro-color-primary-hover: #b91f29;
+    --veyro-color-primary-light: #fff1f2;
+
+    --veyro-color-success: #15803d;
+    --veyro-color-warning: #ca8a04;
+    --veyro-color-danger: #dc2626;
+    --veyro-color-info: #2563eb;
+
+    --veyro-color-input: #ffffff;
+    --veyro-color-input-border: #cbd5e1;
+
+    --veyro-color-navigation: #ffffff;
+    --veyro-color-navigation-active: #fef2f2;
+
+    --veyro-color-card: #ffffff;
+    --veyro-color-card-secondary: #f8fafc;
+
+    --veyro-color-statusbar-stellplaetze: #30353a;
+    --veyro-color-vehicle-status-background: #eaf7ee;
+    --veyro-color-close-button: #d9232d;
+    --veyro-color-close-button-hover: #d24047;
+
+    --veyro-color-scrollbar: #cbd5e1;
+    --veyro-color-overlay: rgba(15, 23, 42, 0.4);
+
+    --veyro-color-shadow: rgba(15, 23, 42, 0.07);
+}
+
+
+/* =========================================================
+   DARK DESIGN
+========================================================= */
+
+body[data-theme="dark"] {
+    --veyro-color-background: #111827;
+    --veyro-color-surface: #1f2937;
+    --veyro-color-surface-secondary: #273449;
+    --veyro-color-surface-hover: #374151;
+
+    --veyro-color-text: #f9fafb;
+    --veyro-color-text-secondary: #d1d5db;
+    --veyro-color-text-muted: #9ca3af;
+
+    --veyro-color-border: #374151;
+    --veyro-color-border-strong: #4b5563;
+    --veyro-color-border-dark: #cfcfcf;
+
+    --veyro-color-primary: #ef5963;
+    --veyro-color-primary-hover: #ff737c;
+    --veyro-color-primary-light: #45242b;
+
+    --veyro-color-success: #34d399;
+    --veyro-color-warning: #fbbf24;
+    --veyro-color-danger: #f87171;
+    --veyro-color-info: #60a5fa;
+
+    --veyro-color-input: #273449;
+    --veyro-color-input-border: #4b5563;
+
+    --veyro-color-navigation: #1f2937;
+    --veyro-color-navigation-active: #45242b;
+
+    --veyro-color-card: #1f2937;
+    --veyro-color-card-secondary: #273449;
+
+    --veyro-color-statusbar-stellplaetze: #8b8b8b;
+    --veyro-color-vehicle-status-background: #47594d;
+    --veyro-color-close-button: #d9232d;
+    --veyro-color-close-button-hover: #d24047;
+
+    --veyro-color-scrollbar: #4b5563;
+    --veyro-color-overlay: rgba(0, 0, 0, 0.65);
+
+    --veyro-color-shadow: rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================================================
+   NIGHT DESIGN
+========================================================= */
+
+body[data-theme="night"] {
+    --veyro-color-background: #080d18;
+    --veyro-color-surface: #111827;
+    --veyro-color-surface-secondary: #172338;
+    --veyro-color-surface-hover: #263750;
+
+    --veyro-color-text: #e5e7eb;
+    --veyro-color-text-secondary: #b6c2d2;
+    --veyro-color-text-muted: #8290a5;
+
+    --veyro-color-border: #263247;
+    --veyro-color-border-strong: #394b65;
+    --veyro-color-border-dark: #a7a7a7;
+
+    --veyro-color-primary: #e05260;
+    --veyro-color-primary-hover: #f06b78;
+    --veyro-color-primary-light: #321e2b;
+
+    --veyro-color-success: #36c995;
+    --veyro-color-warning: #e9ad48;
+    --veyro-color-danger: #ef6672;
+    --veyro-color-info: #65a9ed;
+
+    --veyro-color-input: #172338;
+    --veyro-color-input-border: #394b65;
+
+    --veyro-color-navigation: #111827;
+    --veyro-color-navigation-active: #321e2b;
+
+    --veyro-color-card: #111827;
+    --veyro-color-card-secondary: #172338;
+
+    --veyro-color-statusbar-stellplaetze: #d5d5d5;
+    --veyro-color-vehicle-status-background: #47594d;
+    --veyro-color-close-button: #d9232d;
+    --veyro-color-close-button-hover: #d24047;
+
+    --veyro-color-scrollbar: #394b65;
+    --veyro-color-overlay: rgba(0, 0, 0, 0.75);
+
+    --veyro-color-shadow: rgba(0, 0, 0, 0.4);
+}
